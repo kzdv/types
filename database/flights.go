@@ -12,7 +12,7 @@ type Flights struct {
 	Groundspeed int       `json:"groundspeed"`
 	Heading     int       `json:"heading"`
 	Altitude    int       `json:"altitude"`
-	Aircraft    string    `json:"aircraft" gorm:"type:varchar(6)"`
+	Aircraft    string    `json:"aircraft" gorm:"type:varchar(10)"`
 	Departure   string    `json:"dep" gorm:"type:varchar(4)"`
 	Arrival     string    `json:"arr" gorm:"type:varchar(4)"`
 	Route       string    `json:"route" gorm:"type:text"`
