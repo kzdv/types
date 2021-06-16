@@ -12,6 +12,8 @@ type Flights struct {
 	Heading     int       `json:"heading"`
 	Altitude    int       `json:"altitude"`
 	Aircraft    string    `json:"aircraft" gorm:"type:varchar(6)"`
+	Departure   string    `json:"dep" gorm:"type:varchar(4)"`
+	Arrival     string    `json:"arr" gorm:"type:varchar(4)"`
 	Route       string    `json:"route" gorm:"type:text"`
 	CreatedAt   time.Time `json:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at"`
