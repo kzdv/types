@@ -11,6 +11,7 @@ type OAuthClient struct {
 	ClientId     string `json:"client_id" gorm:"type:varchar(128)"`
 	ClientSecret string `json:"-" gorm:"type:varchar(255)"`
 	RedirectURIs string `json:"return_uris" gorm:"type:text"`
+	TTL          int    `json:"ttl" gorm:"type:int"`
 	CreatedAt    time.Time
 	UpdatedAt    time.Time
 }
