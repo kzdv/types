@@ -11,15 +11,15 @@ type User struct {
 	LastName          string      `json:"lastname" gorm:"type:varchar(128)"`
 	Email             string      `json:"email" gorm:"type:varchar(128)"`
 	OperatingInitials string      `json:"oi" gorm:"type:varchar(2)"`
-	ControllerType    string      `json:"controllerType" gorm:"type:enum('none', 'visitor', 'home')"`
-	DelCertification  CertOptions `json:"delCertification" gorm:"type:enum('none','training','solo','certified','major','cantrain')"`
-	GndCertification  CertOptions `json:"gndCertification" gorm:"type:enum('none','training','solo','certified','major','cantrain')"`
-	LclCertification  CertOptions `json:"lclCertification" gorm:"type:enum('none','training','solo','certified','major','cantrain')"`
-	AppCertification  CertOptions `json:"appCertification" gorm:"type:enum('none','training','solo','certified','major','cantrain')"`
-	CtrCertification  CertOptions `json:"ctrCertification" gorm:"type:enum('none','training','solo','certified','major','cantrain')"`
+	ControllerType    string      `json:"controllerType" gorm:"type:varchar(10)"`
+	DelCertification  CertOptions `json:"delCertification" gorm:"type:varchar(15)"`
+	GndCertification  CertOptions `json:"gndCertification" gorm:"type:varchar(15)"`
+	LclCertification  CertOptions `json:"lclCertification" gorm:"type:varchar(15)"`
+	AppCertification  CertOptions `json:"appCertification" gorm:"type:varchar(15)"`
+	CtrCertification  CertOptions `json:"ctrCertification" gorm:"type:varchar(15)"`
 	RatingID          int         `json:"-"`
 	Rating            Rating      `json:"rating"`
-	Status            string      `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'loa')"`
+	Status            string      `json:"status" gorm:"type:varchar(10)"`
 	Roles             []*Role     `json:"roles" gorm:"many2many:user_roles"`
 	CreatedAt         time.Time   `json:"created_at"`
 	UpdatedAt         time.Time   `json:"updated_at"`
@@ -37,7 +37,7 @@ const (
 )
 
 func (co *CertOptions) Scan(value interface{}) error {
-	*co = CertOptions(value.(string))
+	*co = CertOptions(value.([]uint8))
 	return nil
 }
 
