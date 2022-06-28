@@ -7,6 +7,7 @@ type OAuthLogin struct {
 	Token               string      `json:"token" gorm:"type:varchar(128)"`
 	Code                string      `json:"code" gorm:"varchar(48)"`
 	UserAgent           string      `json:"ua" gorm:"type:varchar(255)"`
+	IP                  string      `json:"ip" gorm:"type:varchar(128)"`
 	RedirectURI         string      `json:"url" gorm:"type:varchar(255)"`
 	ClientID            uint        `json:"-"`
 	Client              OAuthClient `json:"-"`
@@ -15,6 +16,7 @@ type OAuthLogin struct {
 	CodeChallengeMethod string      `json:"-"`
 	Scope               string      `json:"-"`
 	CID                 uint        `json:"cid"`
+	ExpiresAt           time.Time
 	CreatedAt           time.Time
 	UpdatedAt           time.Time
 }
