@@ -15,6 +15,7 @@ type OAuthLogin struct {
 	CodeChallenge       string      `json:"-"`
 	CodeChallengeMethod string      `json:"-"`
 	Scope               string      `json:"-"`
+	Nonce               string      `json:"type:varchar(255)"`
 	CID                 uint        `json:"cid"`
 	ExpiresAt           time.Time
 	CreatedAt           time.Time
