@@ -20,6 +20,7 @@ type User struct {
 	Rating            Rating    `json:"rating"`
 	Status            string    `json:"status" gorm:"type:varchar(10)"`
 	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
+	DiscordID         string    `json:"discord_id"`
 	CreatedAt         time.Time `json:"created_at"`
 	UpdatedAt         time.Time `json:"updated_at"`
 }
