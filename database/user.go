@@ -21,6 +21,10 @@ type User struct {
 	Status            string    `json:"status" gorm:"type:varchar(10)"`
 	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
 	DiscordID         string    `json:"discord_id"`
+	Region            string    `json:"region" gorm:"type:varchar(10)"`
+	Division          string    `json:"division" gorm:"type:varchar(10)"`
+	Subdivision       string    `json:"subdivision" gorm:"type:varchar(10)"`
+	UpdateID          string    `json:"updateid" gorm:"type:varchar(32)"`
 	CreatedAt         time.Time `json:"created_at"`
 	UpdatedAt         time.Time `json:"updated_at"`
 }
