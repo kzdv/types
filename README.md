@@ -1,1 +1,1 @@
-Centralized repository for storing types shared between Go projects.
+ARCHIVED: This has been consolidated to the https://github.com/kzdv/api repo.
